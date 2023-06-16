@@ -4,9 +4,7 @@ import java.util.ArrayList;
 
 public class Alumnos {
     
-    private String nombre;
-    private String cuenta;
-    private String contra;
+    
     private String carrera;
     private boolean becado;
     private int indice;
@@ -14,40 +12,13 @@ public class Alumnos {
     private int aprobadas;
     private ArrayList<Asignatura> actuales;
 
-    public Alumnos(String nombre, String cuenta, String contra, String carrera, boolean becado, int indice, double descuento, int aprobadas, ArrayList<Asignatura> actuales) {
-        this.nombre = nombre;
-        this.cuenta = cuenta;
-        this.contra = contra;
+    public Alumnos(String carrera, boolean becado, int indice, double descuento, int aprobadas, ArrayList<Asignatura> actuales) {
         this.carrera = carrera;
         this.becado = becado;
         this.indice = indice;
         this.descuento = descuento;
         this.aprobadas = aprobadas;
         this.actuales = actuales;
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public String getCuenta() {
-        return cuenta;
-    }
-
-    public void setCuenta(String cuenta) {
-        this.cuenta = cuenta;
-    }
-
-    public String getContra() {
-        return contra;
-    }
-
-    public void setContra(String contra) {
-        this.contra = contra;
     }
 
     public String getCarrera() {
@@ -100,9 +71,9 @@ public class Alumnos {
 
     @Override
     public String toString() {
-        return nombre + ", " + cuenta;
+        return super.toString();
     }
-    
-    
+
+   
     
 }

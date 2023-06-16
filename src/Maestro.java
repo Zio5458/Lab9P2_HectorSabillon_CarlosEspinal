@@ -2,46 +2,18 @@
 import java.util.ArrayList;
 
 
-public class Maestro {
+public class Maestro extends Usuario {
     
-    private String nombre;
-    private String cuenta;
-    private String contra;
+
     private String nacionalidad;
     private String titulo;
     private ArrayList<Asignatura> clases;
 
-    public Maestro(String nombre, String cuenta, String contra, String nacionalidad, String titulo, ArrayList<Asignatura> clases) {
-        this.nombre = nombre;
-        this.cuenta = cuenta;
-        this.contra = contra;
+    public Maestro(String nacionalidad, String titulo, ArrayList<Asignatura> clases, String nombre, String cuenta, String contra) {
+        super(nombre, cuenta, contra);
         this.nacionalidad = nacionalidad;
         this.titulo = titulo;
         this.clases = clases;
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public String getCuenta() {
-        return cuenta;
-    }
-
-    public void setCuenta(String cuenta) {
-        this.cuenta = cuenta;
-    }
-
-    public String getContra() {
-        return contra;
-    }
-
-    public void setContra(String contra) {
-        this.contra = contra;
     }
 
     public String getNacionalidad() {
@@ -70,9 +42,6 @@ public class Maestro {
 
     @Override
     public String toString() {
-        return nombre + ", " + cuenta;
+        return super.toString();
     }
-    
-    
-    
 }
