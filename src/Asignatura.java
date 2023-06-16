@@ -16,6 +16,20 @@ public class Asignatura {
     private String modalidad;
     private String dias;
 
+    public Asignatura(String nombre, String cod_asignatura, String cod_seccion, String horario, int uv, int aula, int edificio, String modalidad, String dias) {
+        this.nombre = nombre;
+        this.cod_asignatura = cod_asignatura;
+        this.cod_seccion = cod_seccion;
+        this.horario = horario;
+        this.uv = uv;
+        this.aula = aula;
+        this.edificio = edificio;
+        this.modalidad = modalidad;
+        this.dias = dias;
+    }
+    
+    
+
     public Asignatura(String nombre, String cod_asignatura, String cod_seccion, String horario, Maestro docente, int uv, int aula, int edificio, ArrayList<Alumnos> alumnos, String modalidad, String dias) {
         this.nombre = nombre;
         this.cod_asignatura = cod_asignatura;
