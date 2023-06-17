@@ -16,6 +16,16 @@ public class Maestro extends Usuario {
         this.clases = clases;
     }
 
+    public Maestro(String nacionalidad, String titulo, String nombre, String cuenta, String contra) {
+        super(nombre, cuenta, contra);
+        this.nacionalidad = nacionalidad;
+        this.titulo = titulo;
+    }
+
+    
+
+    
+    
     public String getNacionalidad() {
         return nacionalidad;
     }
