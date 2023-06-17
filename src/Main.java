@@ -1467,9 +1467,19 @@ public class Main extends javax.swing.JFrame {
         jLabel60.setText("Clases");
 
         jButton4.setText("Agregar Clase");
+        jButton4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton4MouseClicked(evt);
+            }
+        });
 
         jButton5.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
-        jButton5.setText("Crear");
+        jButton5.setText("Modificar");
+        jButton5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton5MouseClicked(evt);
+            }
+        });
 
         bActualizarM.setText("Actualizar Campos");
         bActualizarM.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -1839,9 +1849,20 @@ public class Main extends javax.swing.JFrame {
             }
             CRUDdialog.setVisible(false);
             cbAlumnos.setModel(m);            
-            createAlumno.pack();
-            createAlumno.setModal(true);
-            createAlumno.setVisible(true);
+            modificarAlumno.pack();
+            modificarAlumno.setModal(true);
+            modificarAlumno.setVisible(true);
+        } else if (alummas.equals("maestro")){
+            DefaultComboBoxModel m = (DefaultComboBoxModel) cbM.getModel();
+            for (int i = 0; i < maestros.size(); i++) {
+                m.addElement(maestros.get(i));
+            }
+            CRUDdialog.setVisible(false);
+            cbM.setModel(m);            
+            modMaestro.pack();
+            modMaestro.setModal(true);
+            modMaestro.setVisible(true);
+            temp = new ArrayList();
         }
     }//GEN-LAST:event_crudModMouseClicked
 
@@ -1994,7 +2015,11 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_addCMouseClicked
 
     private void bActualizarMMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bActualizarMMouseClicked
-        tfN1.setText(cbM.getSelectedItem());
+        tfN1.setText( ((Maestro) cbM.getSelectedItem()).getNombre());
+        tfCu1.setText(  ((Maestro) cbM.getSelectedItem()).getCuenta());
+        tfCo1.setText(((Maestro) cbM.getSelectedItem()).getContra());
+        tfNa1.setText(((Maestro) cbM.getSelectedItem()).getNacionalidad());
+        tfT1.setText(((Maestro) cbM.getSelectedItem()).getTitulo());
     }//GEN-LAST:event_bActualizarMMouseClicked
 
     private void crearMMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_crearMMouseClicked
@@ -2007,6 +2032,24 @@ public class Main extends javax.swing.JFrame {
         Maestro master = new Maestro(nacionalidad, titulo, c, nombre, cuenta, contra);
         maestros.add(master);
     }//GEN-LAST:event_crearMMouseClicked
+
+    private void jButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseClicked
+
+        Asignatura a = (Asignatura) cbC1.getSelectedItem();
+        temp.add(a);
+    }//GEN-LAST:event_jButton4MouseClicked
+
+    private void jButton5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton5MouseClicked
+        int i = cbM.getSelectedIndex();
+        String nombre = tfN1.getText();
+        String cuenta = tfCu1.getText();
+        String contra = tfCo1.getText();
+        String nacionalidad = tfNa1.getText();
+        String titulo = tfT1.getText();
+        ArrayList<Asignatura> c = temp;
+        Maestro master = new Maestro(nacionalidad, titulo, c, nombre, cuenta, contra);
+        maestros.set(i, master);
+    }//GEN-LAST:event_jButton5MouseClicked
 
     /**
      * @param args the command line arguments
