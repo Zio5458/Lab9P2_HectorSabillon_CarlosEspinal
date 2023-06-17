@@ -2,7 +2,7 @@
 import java.util.ArrayList;
 
 
-public class Alumnos {
+public class Alumnos extends Usuario{
     
     
     private String carrera;
@@ -12,7 +12,8 @@ public class Alumnos {
     private int aprobadas;
     private ArrayList<Asignatura> actuales;
 
-    public Alumnos(String carrera, boolean becado, int indice, double descuento, int aprobadas, ArrayList<Asignatura> actuales) {
+    public Alumnos(String carrera, boolean becado, int indice, double descuento, int aprobadas, ArrayList<Asignatura> actuales, String nombre, String cuenta, String contra) {
+        super(nombre, cuenta, contra);
         this.carrera = carrera;
         this.becado = becado;
         this.indice = indice;
@@ -21,6 +22,19 @@ public class Alumnos {
         this.actuales = actuales;
     }
 
+    public Alumnos(String carrera, boolean becado, int indice, double descuento, int aprobadas, String nombre, String cuenta, String contra) {
+        super(nombre, cuenta, contra);
+        this.carrera = carrera;
+        this.becado = becado;
+        this.indice = indice;
+        this.descuento = descuento;
+        this.aprobadas = aprobadas;
+    }
+
+    
+
+    
+    
     public String getCarrera() {
         return carrera;
     }
