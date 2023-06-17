@@ -2132,13 +2132,13 @@ public class Main extends javax.swing.JFrame {
         } else{
             for (Alumnos student : students) {
                 if (student.getCuenta().equals(accountnum) && student.getContra().equals(accountpass)) {
+                    currentlyin = student.getCuenta();
                     this.setVisible(false);
                     StudentDialog.pack();
                     StudentDialog.setModal(true);
                     StudentDialog.setLocationRelativeTo(this);
                     StudentDialog.setVisible(true);
-                    currentlyin = student;
-                    currentlyin.setActuales(new ArrayList());
+                    
                     
                 }
             }
@@ -2548,12 +2548,22 @@ public class Main extends javax.swing.JFrame {
 
     private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
         // TODO add your handling code here:
-        currentlyin.getActuales().add((Asignatura)jComboBox1.getSelectedItem());
+        int indi = 0;
+        
+        for (Alumnos student : students) {
+            if (student.getCuenta().equals(currentlyin)) {
+                indi = students.indexOf(student);
+            }
+        }
+        
+        Alumnos alm = students.get(indi);
+        alm.getActuales().add((Asignatura)jComboBox1.getSelectedItem());
         ThreadMatricula tm = new ThreadMatricula(jProgressBar1);
+        tm.setJd(AddClass);
+        tm.setJd2(StudentDialog);
         tm.start();
-        StudentDialog.pack();
-        StudentDialog.setModal(true);
-        StudentDialog.setVisible(true);
+        
+        
         
         
         
@@ -2612,7 +2622,7 @@ public class Main extends javax.swing.JFrame {
     private ArrayList<Maestro> maestros = new ArrayList();
     private ArrayList<Alumnos> students = new ArrayList();
     private ArrayList<Asignatura> clases = new ArrayList();
-    private Alumnos currentlyin;
+    private String currentlyin;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDialog AddClass;
