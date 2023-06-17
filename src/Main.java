@@ -208,6 +208,13 @@ public class Main extends javax.swing.JFrame {
         jLabel61 = new javax.swing.JLabel();
         cbElimM = new javax.swing.JComboBox<>();
         bElimM = new javax.swing.JButton();
+        listAlum = new javax.swing.JDialog();
+        jPanel31 = new javax.swing.JPanel();
+        jPanel32 = new javax.swing.JPanel();
+        jPanel33 = new javax.swing.JPanel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTable2 = new javax.swing.JTable();
+        salirListarAsig1 = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         accnumber = new javax.swing.JTextField();
@@ -1659,6 +1666,93 @@ public class Main extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
+        jPanel31.setBackground(new java.awt.Color(0, 0, 135));
+
+        javax.swing.GroupLayout jPanel31Layout = new javax.swing.GroupLayout(jPanel31);
+        jPanel31.setLayout(jPanel31Layout);
+        jPanel31Layout.setHorizontalGroup(
+            jPanel31Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1280, Short.MAX_VALUE)
+        );
+        jPanel31Layout.setVerticalGroup(
+            jPanel31Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+
+        jPanel32.setBackground(new java.awt.Color(255, 0, 0));
+
+        javax.swing.GroupLayout jPanel32Layout = new javax.swing.GroupLayout(jPanel32);
+        jPanel32.setLayout(jPanel32Layout);
+        jPanel32Layout.setHorizontalGroup(
+            jPanel32Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+        jPanel32Layout.setVerticalGroup(
+            jPanel32Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 620, Short.MAX_VALUE)
+        );
+
+        jPanel33.setBackground(new java.awt.Color(255, 255, 255));
+
+        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Nombre", "Cuenta", "Contra", "Carrera", "Becado", "Indice", "Descuento", "Clases Aprobadas"
+            }
+        ));
+        jScrollPane2.setViewportView(jTable2);
+
+        salirListarAsig1.setText("Salir");
+        salirListarAsig1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                salirListarAsig1MouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel33Layout = new javax.swing.GroupLayout(jPanel33);
+        jPanel33.setLayout(jPanel33Layout);
+        jPanel33Layout.setHorizontalGroup(
+            jPanel33Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel33Layout.createSequentialGroup()
+                .addGap(113, 113, 113)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 952, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(115, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel33Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(salirListarAsig1)
+                .addGap(44, 44, 44))
+        );
+        jPanel33Layout.setVerticalGroup(
+            jPanel33Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel33Layout.createSequentialGroup()
+                .addGap(26, 26, 26)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 90, Short.MAX_VALUE)
+                .addComponent(salirListarAsig1)
+                .addGap(54, 54, 54))
+        );
+
+        javax.swing.GroupLayout listAlumLayout = new javax.swing.GroupLayout(listAlum.getContentPane());
+        listAlum.getContentPane().setLayout(listAlumLayout);
+        listAlumLayout.setHorizontalGroup(
+            listAlumLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel31, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(listAlumLayout.createSequentialGroup()
+                .addComponent(jPanel32, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(jPanel33, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        listAlumLayout.setVerticalGroup(
+            listAlumLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(listAlumLayout.createSequentialGroup()
+                .addComponent(jPanel31, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(listAlumLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel32, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel33, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
@@ -1892,6 +1986,15 @@ public class Main extends javax.swing.JFrame {
             listAsig.setModal(true);
             listAsig.setVisible(true);
 
+        } else if (alummas.equals("alumno")){
+            for (Alumnos a : students) {
+                if (a.isBecado()){
+                    Object[] newrow = {a.getNombre(), a.getCuenta(), a.getContra(), a.getCarrera(), "Si", a.getIndice(), a.getDescuento(), a.getAprobadas()};
+                }
+                
+                
+
+            }
         }
     }//GEN-LAST:event_crudListMouseClicked
 
@@ -2143,6 +2246,10 @@ public class Main extends javax.swing.JFrame {
         maestros.remove(i);
     }//GEN-LAST:event_bElimMMouseClicked
 
+    private void salirListarAsig1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_salirListarAsig1MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_salirListarAsig1MouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -2323,6 +2430,9 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel29;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel30;
+    private javax.swing.JPanel jPanel31;
+    private javax.swing.JPanel jPanel32;
+    private javax.swing.JPanel jPanel33;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
@@ -2330,7 +2440,10 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable1;
+    private javax.swing.JTable jTable2;
+    private javax.swing.JDialog listAlum;
     private javax.swing.JDialog listAsig;
     private javax.swing.JButton loginbtn;
     private javax.swing.JDialog modAsig;
@@ -2341,6 +2454,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JTextField nomAsig;
     private javax.swing.JTextField nomAsig1;
     private javax.swing.JButton salirListarAsig;
+    private javax.swing.JButton salirListarAsig1;
     private javax.swing.JTextField tfAprobadas;
     private javax.swing.JTextField tfAprobadas1;
     private javax.swing.JTextField tfCarrera;
