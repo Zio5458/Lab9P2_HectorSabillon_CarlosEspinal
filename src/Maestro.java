@@ -38,6 +38,8 @@ public class Maestro extends Usuario {
 
     public void setClases(ArrayList<Asignatura> clases) {
         this.clases = clases;
+        
+        
     }
 
     @Override

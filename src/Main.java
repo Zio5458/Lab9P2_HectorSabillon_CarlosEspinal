@@ -1,6 +1,8 @@
 
 import java.util.ArrayList;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -69,6 +71,41 @@ public class Main extends javax.swing.JFrame {
         jLabel14 = new javax.swing.JLabel();
         createAsignatura = new javax.swing.JButton();
         createMaestro = new javax.swing.JDialog();
+        listAsig = new javax.swing.JDialog();
+        jPanel13 = new javax.swing.JPanel();
+        jPanel14 = new javax.swing.JPanel();
+        jPanel15 = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        salirListarAsig = new javax.swing.JButton();
+        modAsig = new javax.swing.JDialog();
+        jPanel16 = new javax.swing.JPanel();
+        jPanel18 = new javax.swing.JPanel();
+        nomAsig1 = new javax.swing.JTextField();
+        codAsig1 = new javax.swing.JTextField();
+        codsexAsig1 = new javax.swing.JTextField();
+        horarioAsig1 = new javax.swing.JTextField();
+        unidadesAsig1 = new javax.swing.JTextField();
+        aulaAsig1 = new javax.swing.JTextField();
+        edificioAsig1 = new javax.swing.JTextField();
+        modalidadAsig1 = new javax.swing.JTextField();
+        diasAsig1 = new javax.swing.JTextField();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
+        jLabel19 = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
+        jLabel21 = new javax.swing.JLabel();
+        jLabel22 = new javax.swing.JLabel();
+        jLabel23 = new javax.swing.JLabel();
+        jLabel24 = new javax.swing.JLabel();
+        elegimeesta = new javax.swing.JComboBox<>();
+        jButton1 = new javax.swing.JButton();
+        elimAsig = new javax.swing.JDialog();
+        jPanel17 = new javax.swing.JPanel();
+        elegimeesta1 = new javax.swing.JComboBox<>();
+        elimbtn = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         accnumber = new javax.swing.JTextField();
@@ -212,12 +249,27 @@ public class Main extends javax.swing.JFrame {
 
         crudMod.setFont(new java.awt.Font("Segoe UI Black", 0, 18)); // NOI18N
         crudMod.setText("MODIFICAR");
+        crudMod.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                crudModMouseClicked(evt);
+            }
+        });
 
         crudList.setFont(new java.awt.Font("Segoe UI Black", 0, 18)); // NOI18N
         crudList.setText("LISTAR");
+        crudList.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                crudListMouseClicked(evt);
+            }
+        });
 
         crudElim.setFont(new java.awt.Font("Segoe UI Black", 0, 18)); // NOI18N
         crudElim.setText("ELIMINAR");
+        crudElim.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                crudElimMouseClicked(evt);
+            }
+        });
 
         jLabel4.setFont(new java.awt.Font("Segoe UI Black", 0, 18)); // NOI18N
         jLabel4.setText("PLACEHOLDER");
@@ -384,7 +436,6 @@ public class Main extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(unidadesAsig, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel12Layout.createSequentialGroup()
-                        .addGap(65, 65, 65)
                         .addComponent(jLabel5)
                         .addGap(18, 18, 18)
                         .addComponent(nomAsig, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -472,6 +523,287 @@ public class Main extends javax.swing.JFrame {
             .addGap(0, 300, Short.MAX_VALUE)
         );
 
+        jPanel13.setBackground(new java.awt.Color(0, 0, 135));
+
+        javax.swing.GroupLayout jPanel13Layout = new javax.swing.GroupLayout(jPanel13);
+        jPanel13.setLayout(jPanel13Layout);
+        jPanel13Layout.setHorizontalGroup(
+            jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1280, Short.MAX_VALUE)
+        );
+        jPanel13Layout.setVerticalGroup(
+            jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+
+        jPanel14.setBackground(new java.awt.Color(255, 0, 0));
+
+        javax.swing.GroupLayout jPanel14Layout = new javax.swing.GroupLayout(jPanel14);
+        jPanel14.setLayout(jPanel14Layout);
+        jPanel14Layout.setHorizontalGroup(
+            jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+        jPanel14Layout.setVerticalGroup(
+            jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 620, Short.MAX_VALUE)
+        );
+
+        jPanel15.setBackground(new java.awt.Color(255, 255, 255));
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Nombre", "Codigo", "Codigo Seccion", "Horario", "Docente", "UV", "Aula", "Edificion", "Modalidad", "Dias"
+            }
+        ));
+        jScrollPane1.setViewportView(jTable1);
+
+        salirListarAsig.setText("Salir");
+        salirListarAsig.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                salirListarAsigMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel15Layout = new javax.swing.GroupLayout(jPanel15);
+        jPanel15.setLayout(jPanel15Layout);
+        jPanel15Layout.setHorizontalGroup(
+            jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel15Layout.createSequentialGroup()
+                .addGap(113, 113, 113)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 952, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(115, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel15Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(salirListarAsig)
+                .addGap(44, 44, 44))
+        );
+        jPanel15Layout.setVerticalGroup(
+            jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel15Layout.createSequentialGroup()
+                .addGap(26, 26, 26)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 90, Short.MAX_VALUE)
+                .addComponent(salirListarAsig)
+                .addGap(54, 54, 54))
+        );
+
+        javax.swing.GroupLayout listAsigLayout = new javax.swing.GroupLayout(listAsig.getContentPane());
+        listAsig.getContentPane().setLayout(listAsigLayout);
+        listAsigLayout.setHorizontalGroup(
+            listAsigLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(listAsigLayout.createSequentialGroup()
+                .addComponent(jPanel14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(jPanel15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        listAsigLayout.setVerticalGroup(
+            listAsigLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(listAsigLayout.createSequentialGroup()
+                .addComponent(jPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(listAsigLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+        );
+
+        modAsig.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel16.setBackground(new java.awt.Color(0, 0, 135));
+
+        javax.swing.GroupLayout jPanel16Layout = new javax.swing.GroupLayout(jPanel16);
+        jPanel16.setLayout(jPanel16Layout);
+        jPanel16Layout.setHorizontalGroup(
+            jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        jPanel16Layout.setVerticalGroup(
+            jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 90, Short.MAX_VALUE)
+        );
+
+        modAsig.getContentPane().add(jPanel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1280, 90));
+
+        jPanel18.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel15.setText("Nombre");
+
+        jLabel16.setText("Codigo");
+
+        jLabel17.setText("Codigo Seccion");
+
+        jLabel18.setText("Horario");
+
+        jLabel19.setText("Unidades Valorativas");
+
+        jLabel20.setText("Aula");
+
+        jLabel21.setText("Edificio");
+
+        jLabel22.setText("Modalidad");
+
+        jLabel23.setText("Dias");
+
+        jLabel24.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
+        jLabel24.setText("CREAR ASIGNATURA");
+
+        jButton1.setText("Modificar");
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton1MouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel18Layout = new javax.swing.GroupLayout(jPanel18);
+        jPanel18.setLayout(jPanel18Layout);
+        jPanel18Layout.setHorizontalGroup(
+            jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel18Layout.createSequentialGroup()
+                .addGap(16, 16, 16)
+                .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addGroup(jPanel18Layout.createSequentialGroup()
+                        .addComponent(jLabel23)
+                        .addGap(18, 18, 18)
+                        .addComponent(diasAsig1, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel18Layout.createSequentialGroup()
+                        .addComponent(jLabel22)
+                        .addGap(18, 18, 18)
+                        .addComponent(modalidadAsig1, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel18Layout.createSequentialGroup()
+                        .addComponent(jLabel20)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(aulaAsig1, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel18Layout.createSequentialGroup()
+                        .addComponent(jLabel18)
+                        .addGap(18, 18, 18)
+                        .addComponent(horarioAsig1, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel18Layout.createSequentialGroup()
+                        .addComponent(jLabel16)
+                        .addGap(18, 18, 18)
+                        .addComponent(codAsig1, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel18Layout.createSequentialGroup()
+                        .addComponent(jLabel21)
+                        .addGap(18, 18, 18)
+                        .addComponent(edificioAsig1, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel18Layout.createSequentialGroup()
+                        .addComponent(jLabel17)
+                        .addGap(18, 18, 18)
+                        .addComponent(codsexAsig1, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel18Layout.createSequentialGroup()
+                        .addComponent(jLabel19)
+                        .addGap(18, 18, 18)
+                        .addComponent(unidadesAsig1, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel18Layout.createSequentialGroup()
+                        .addComponent(jLabel15)
+                        .addGap(18, 18, 18)
+                        .addComponent(nomAsig1, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 251, Short.MAX_VALUE)
+                .addComponent(elegimeesta, javax.swing.GroupLayout.PREFERRED_SIZE, 385, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(127, 127, 127))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel18Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addGap(45, 45, 45))
+        );
+        jPanel18Layout.setVerticalGroup(
+            jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel18Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel18Layout.createSequentialGroup()
+                        .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(nomAsig1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel15))
+                            .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(codAsig1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel16))
+                        .addGap(25, 25, 25))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel18Layout.createSequentialGroup()
+                        .addComponent(elegimeesta, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(codsexAsig1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel17))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(horarioAsig1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel18))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(unidadesAsig1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel19))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(aulaAsig1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel20))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(edificioAsig1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel21))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(modalidadAsig1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel22))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(diasAsig1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel23))
+                .addGap(35, 35, 35)
+                .addComponent(jButton1)
+                .addContainerGap(35, Short.MAX_VALUE))
+        );
+
+        modAsig.getContentPane().add(jPanel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 1280, 630));
+
+        jPanel17.setBackground(new java.awt.Color(255, 255, 255));
+
+        elimbtn.setText("ELIMINAR");
+        elimbtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                elimbtnMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel17Layout = new javax.swing.GroupLayout(jPanel17);
+        jPanel17.setLayout(jPanel17Layout);
+        jPanel17Layout.setHorizontalGroup(
+            jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel17Layout.createSequentialGroup()
+                .addGap(118, 118, 118)
+                .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(elegimeesta1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(elimbtn, javax.swing.GroupLayout.DEFAULT_SIZE, 286, Short.MAX_VALUE))
+                .addContainerGap(177, Short.MAX_VALUE))
+        );
+        jPanel17Layout.setVerticalGroup(
+            jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel17Layout.createSequentialGroup()
+                .addGap(38, 38, 38)
+                .addComponent(elegimeesta1, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 126, Short.MAX_VALUE)
+                .addComponent(elimbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(31, 31, 31))
+        );
+
+        javax.swing.GroupLayout elimAsigLayout = new javax.swing.GroupLayout(elimAsig.getContentPane());
+        elimAsig.getContentPane().setLayout(elimAsigLayout);
+        elimAsigLayout.setHorizontalGroup(
+            elimAsigLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel17, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        elimAsigLayout.setVerticalGroup(
+            elimAsigLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel17, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
@@ -479,6 +811,10 @@ public class Main extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Segoe UI Black", 0, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("LOG IN");
+
+        accnumber.setText("12141095");
+
+        accpassword.setText("HEYjude");
 
         jLabel2.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
         jLabel2.setText("Numero de cuenta");
@@ -621,13 +957,22 @@ public class Main extends javax.swing.JFrame {
         } else if(alummas.equals("maestro")){
             
         } else if(alummas.equals("asig")){
-            
+            CRUDdialog.setVisible(false);
+            createAsig.pack();
+            createAsig.setModal(true);
+            createAsig.setLocationRelativeTo(this);
+            createAsig.setVisible(true);
         }
     }//GEN-LAST:event_crudCreateMouseClicked
 
     private void AsignaturaSetFlagMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AsignaturaSetFlagMouseClicked
         // TODO add your handling code here:
         alummas = "asig";
+        AdminDialog.setVisible(false);
+        CRUDdialog.pack();
+        CRUDdialog.setModal(true);
+        CRUDdialog.setLocationRelativeTo(this);
+        CRUDdialog.setVisible(true);
     }//GEN-LAST:event_AsignaturaSetFlagMouseClicked
 
     private void createAsignaturaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_createAsignaturaMouseClicked
@@ -643,8 +988,137 @@ public class Main extends javax.swing.JFrame {
         String daysAsg = diasAsig.getText();
         
         clases.add(new Asignatura(nameAsg, codeAsg, codesexAsg, horaAsg, UVAsg, aulAsg, ediAsg, modaAsg, daysAsg));
-        JOptionPane.showMessageDialog(createAsignatura, "Asignatura creada correctamente!");
+        JOptionPane.showMessageDialog(createAsig, "Asignatura creada correctamente!");
+        for (Asignatura clase : clases) {
+            System.out.println(clase);
+        }
+        createAsig.setVisible(false);
+        CRUDdialog.pack();
+        CRUDdialog.setModal(true);
+        CRUDdialog.setVisible(true);
+        
+        
     }//GEN-LAST:event_createAsignaturaMouseClicked
+
+    private void crudListMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_crudListMouseClicked
+        // TODO add your handling code here:
+        
+        DefaultTableModel dtm = (DefaultTableModel) jTable1.getModel();
+        dtm.setRowCount(0);
+        
+        if (alummas.equals("asig")) {
+            
+        
+            for (Asignatura clase : clases) {
+                System.out.println("llega");
+                Object[] newrow = {clase.getNombre(),clase.getCod_asignatura(),clase.getCod_seccion(),clase.getHorario(),clase.getDocente(),clase.getUv(),clase.getAula(),clase.getEdificio(),clase.getModalidad(),clase.getDias() };
+                dtm.addRow(newrow);
+                
+            }
+            jTable1.setModel(dtm);
+            CRUDdialog.setVisible(false);
+            listAsig.pack();
+            listAsig.setModal(true);
+            listAsig.setVisible(true);
+            
+        }
+    }//GEN-LAST:event_crudListMouseClicked
+
+    private void salirListarAsigMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_salirListarAsigMouseClicked
+        // TODO add your handling code here:
+        listAsig.setVisible(false);
+        CRUDdialog.pack();
+        CRUDdialog.setModal(true);
+        CRUDdialog.setVisible(true);
+        
+    }//GEN-LAST:event_salirListarAsigMouseClicked
+
+    private void crudModMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_crudModMouseClicked
+        // TODO add your handling code here:
+        
+        if (alummas.equals("asig")) {
+            DefaultComboBoxModel dcm = (DefaultComboBoxModel) elegimeesta.getModel();
+            dcm.removeAllElements();
+            for (Asignatura clase : clases) {
+                dcm.addElement(clase);
+            }
+            elegimeesta.setModel(dcm);
+            CRUDdialog.setVisible(false);
+            modAsig.pack();
+            modAsig.setModal(true);
+            modAsig.setVisible(true);
+            
+            
+        }
+    }//GEN-LAST:event_crudModMouseClicked
+
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+        // TODO add your handling code here:
+        
+        int ass = clases.indexOf(elegimeesta.getSelectedItem());
+        Asignatura as = clases.get(ass);
+        
+        
+        String nameAsg = nomAsig1.getText();
+        String codeAsg = codAsig1.getText();
+        String codesexAsg = codsexAsig1.getText();
+        String horaAsg = horarioAsig1.getText();
+        int UVAsg = Integer.parseInt(unidadesAsig1.getText());
+        int aulAsg = Integer.parseInt(aulaAsig1.getText());
+        int ediAsg = Integer.parseInt(edificioAsig1.getText());
+        String modaAsg = modalidadAsig1.getText();
+        String daysAsg = diasAsig1.getText();
+        
+        as.setNombre(nameAsg);
+        as.setCod_asignatura(codeAsg);
+        as.setCod_seccion(codesexAsg);
+        as.setHorario(horaAsg);
+        as.setUv(UVAsg);
+        as.setAula(aulAsg);
+        as.setEdificio(ediAsg);
+        as.setModalidad(modaAsg);
+        as.setDias(daysAsg);
+        
+        JOptionPane.showMessageDialog(modAsig, "Usuario modificado");
+        modAsig.setVisible(false);
+        CRUDdialog.pack();
+        CRUDdialog.setModal(true);
+        CRUDdialog.setVisible(true);
+        
+    }//GEN-LAST:event_jButton1MouseClicked
+
+    private void crudElimMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_crudElimMouseClicked
+        // TODO add your handling code here:
+        if (alummas.equals("asig")) {
+            DefaultComboBoxModel dcm = (DefaultComboBoxModel) elegimeesta1.getModel();
+            dcm.removeAllElements();
+            for (Asignatura clase : clases) {
+                dcm.addElement(clase);
+            }
+            elegimeesta.setModel(dcm);
+            CRUDdialog.setVisible(false);
+            elimAsig.pack();
+            elimAsig.setModal(true);
+            elimAsig.setVisible(true);
+            
+            
+        }
+                     
+    }//GEN-LAST:event_crudElimMouseClicked
+
+    private void elimbtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_elimbtnMouseClicked
+        // TODO add your handling code here:
+        int ass = clases.indexOf(elegimeesta1.getSelectedItem());
+        Asignatura as = clases.get(ass);
+        
+        clases.remove(as);
+        JOptionPane.showMessageDialog(elimAsig, "Asignacion eliminada");
+        elimAsig.setVisible(false);
+        CRUDdialog.pack();
+        CRUDdialog.setModal(true);
+        CRUDdialog.setVisible(true);
+        
+    }//GEN-LAST:event_elimbtnMouseClicked
 
     
     
@@ -697,8 +1171,11 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JTextField accnumber;
     private javax.swing.JTextField accpassword;
     private javax.swing.JTextField aulaAsig;
+    private javax.swing.JTextField aulaAsig1;
     private javax.swing.JTextField codAsig;
+    private javax.swing.JTextField codAsig1;
     private javax.swing.JTextField codsexAsig;
+    private javax.swing.JTextField codsexAsig1;
     private javax.swing.JDialog createAlumno;
     private javax.swing.JDialog createAsig;
     private javax.swing.JButton createAsignatura;
@@ -708,15 +1185,33 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JButton crudList;
     private javax.swing.JButton crudMod;
     private javax.swing.JTextField diasAsig;
+    private javax.swing.JTextField diasAsig1;
     private javax.swing.JTextField edificioAsig;
+    private javax.swing.JTextField edificioAsig1;
+    private javax.swing.JComboBox<String> elegimeesta;
+    private javax.swing.JComboBox<String> elegimeesta1;
+    private javax.swing.JDialog elimAsig;
+    private javax.swing.JButton elimbtn;
     private javax.swing.JTextField horarioAsig;
+    private javax.swing.JTextField horarioAsig1;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -728,6 +1223,12 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
     private javax.swing.JPanel jPanel12;
+    private javax.swing.JPanel jPanel13;
+    private javax.swing.JPanel jPanel14;
+    private javax.swing.JPanel jPanel15;
+    private javax.swing.JPanel jPanel16;
+    private javax.swing.JPanel jPanel17;
+    private javax.swing.JPanel jPanel18;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
@@ -736,10 +1237,18 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTable1;
+    private javax.swing.JDialog listAsig;
     private javax.swing.JButton loginbtn;
+    private javax.swing.JDialog modAsig;
     private javax.swing.JTextField modalidadAsig;
+    private javax.swing.JTextField modalidadAsig1;
     private javax.swing.JTextField nomAsig;
+    private javax.swing.JTextField nomAsig1;
+    private javax.swing.JButton salirListarAsig;
     private javax.swing.JTextField unidadesAsig;
+    private javax.swing.JTextField unidadesAsig1;
     // End of variables declaration//GEN-END:variables
 
 }

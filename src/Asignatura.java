@@ -43,6 +43,8 @@ public class Asignatura {
         this.modalidad = modalidad;
         this.dias = dias;
     }
+    
+    
 
     public String getNombre() {
         return nombre;
