@@ -10,7 +10,7 @@ public class Alumnos extends Usuario{
     private int indice;
     private double descuento;
     private int aprobadas;
-    private ArrayList<Asignatura> actuales;
+    private ArrayList<Asignatura> actuales = new ArrayList();
 
     public Alumnos(String carrera, boolean becado, int indice, double descuento, int aprobadas, ArrayList<Asignatura> actuales, String nombre, String cuenta, String contra) {
         super(nombre, cuenta, contra);
