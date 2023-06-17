@@ -202,6 +202,12 @@ public class Main extends javax.swing.JFrame {
         jButton5 = new javax.swing.JButton();
         bActualizarM = new javax.swing.JButton();
         cbM = new javax.swing.JComboBox<>();
+        elimMaestro = new javax.swing.JDialog();
+        jPanel29 = new javax.swing.JPanel();
+        jPanel30 = new javax.swing.JPanel();
+        jLabel61 = new javax.swing.JLabel();
+        cbElimM = new javax.swing.JComboBox<>();
+        bElimM = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         accnumber = new javax.swing.JTextField();
@@ -1582,6 +1588,77 @@ public class Main extends javax.swing.JFrame {
                 .addGap(0, 1, Short.MAX_VALUE))
         );
 
+        jPanel29.setBackground(new java.awt.Color(255, 255, 255));
+
+        jPanel30.setBackground(new java.awt.Color(51, 51, 255));
+
+        javax.swing.GroupLayout jPanel30Layout = new javax.swing.GroupLayout(jPanel30);
+        jPanel30.setLayout(jPanel30Layout);
+        jPanel30Layout.setHorizontalGroup(
+            jPanel30Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        jPanel30Layout.setVerticalGroup(
+            jPanel30Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+
+        jLabel61.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel61.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel61.setText("Eliminar Maestro");
+
+        bElimM.setText("Eliminar");
+        bElimM.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                bElimMMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel29Layout = new javax.swing.GroupLayout(jPanel29);
+        jPanel29.setLayout(jPanel29Layout);
+        jPanel29Layout.setHorizontalGroup(
+            jPanel29Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel30, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel29Layout.createSequentialGroup()
+                .addGroup(jPanel29Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel29Layout.createSequentialGroup()
+                        .addGap(48, 48, 48)
+                        .addComponent(jLabel61))
+                    .addGroup(jPanel29Layout.createSequentialGroup()
+                        .addGap(249, 249, 249)
+                        .addGroup(jPanel29Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(cbElimM, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(bElimM, javax.swing.GroupLayout.DEFAULT_SIZE, 267, Short.MAX_VALUE))))
+                .addContainerGap(308, Short.MAX_VALUE))
+        );
+        jPanel29Layout.setVerticalGroup(
+            jPanel29Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel29Layout.createSequentialGroup()
+                .addComponent(jPanel30, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel61)
+                .addGap(58, 58, 58)
+                .addComponent(cbElimM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(57, 57, 57)
+                .addComponent(bElimM)
+                .addGap(0, 295, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout elimMaestroLayout = new javax.swing.GroupLayout(elimMaestro.getContentPane());
+        elimMaestro.getContentPane().setLayout(elimMaestroLayout);
+        elimMaestroLayout.setHorizontalGroup(
+            elimMaestroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(elimMaestroLayout.createSequentialGroup()
+                .addComponent(jPanel29, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+        elimMaestroLayout.setVerticalGroup(
+            elimMaestroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(elimMaestroLayout.createSequentialGroup()
+                .addComponent(jPanel29, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
@@ -1925,6 +2002,16 @@ public class Main extends javax.swing.JFrame {
             elimAlumno.setModal(true);
             elimAlumno.setVisible(true);
             
+        } else if (alummas.equals("maestro")){
+            DefaultComboBoxModel m = (DefaultComboBoxModel) cbElimM.getModel();
+            for (int i = 0; i < maestros.size(); i++){
+                m.addElement(maestros.get(i));
+            }
+            cbElimM.setModel(m);
+            CRUDdialog.setVisible(false);
+            elimMaestro.pack();
+            elimMaestro.setModal(true);
+            elimMaestro.setVisible(true);
         }
 
     }//GEN-LAST:event_crudElimMouseClicked
@@ -2051,6 +2138,11 @@ public class Main extends javax.swing.JFrame {
         maestros.set(i, master);
     }//GEN-LAST:event_jButton5MouseClicked
 
+    private void bElimMMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bElimMMouseClicked
+        int i = cbElimM.getSelectedIndex();
+        maestros.remove(i);
+    }//GEN-LAST:event_bElimMMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -2106,6 +2198,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JButton bActualizarM;
     private javax.swing.JButton bCrear;
     private javax.swing.JButton bElimAlum;
+    private javax.swing.JButton bElimM;
     private javax.swing.JButton bModificar;
     private javax.swing.JButton botonBecado;
     private javax.swing.JButton botonBecado1;
@@ -2114,6 +2207,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> cbC1;
     private javax.swing.JComboBox<String> cbClases;
     private javax.swing.JComboBox<String> cbClases1;
+    private javax.swing.JComboBox<String> cbElimM;
     private javax.swing.JComboBox<String> cbM;
     private javax.swing.JComboBox<String> cbelim;
     private javax.swing.JTextField codAsig;
@@ -2137,6 +2231,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> elegimeesta1;
     private javax.swing.JDialog elimAlumno;
     private javax.swing.JDialog elimAsig;
+    private javax.swing.JDialog elimMaestro;
     private javax.swing.JButton elimbtn;
     private javax.swing.JTextField horarioAsig;
     private javax.swing.JTextField horarioAsig1;
@@ -2200,6 +2295,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel59;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel60;
+    private javax.swing.JLabel jLabel61;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
@@ -2224,7 +2320,9 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel26;
     private javax.swing.JPanel jPanel27;
     private javax.swing.JPanel jPanel28;
+    private javax.swing.JPanel jPanel29;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel30;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
